@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9918d9e-37f0-4a68-a841-7893b5be1b21" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home-page.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            <state relative-caret-position="328">
+              <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <marker date="1557951396000" expanded="true" signature="225:275" ph="..." />
@@ -93,21 +92,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/product-page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/home-page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6248">
-              <caret line="600" column="20" selection-start-line="600" selection-start-column="20" selection-end-line="600" selection-end-column="20" />
+            <state relative-caret-position="128">
+              <caret line="253" column="9" selection-start-line="253" selection-start-column="9" selection-end-line="253" selection-end-column="9" />
               <folding>
+                <element signature="n#div#0;n#div#0;n#section#0;n#div#0;n#main#0;n#!!top" />
                 <element signature="e#17363#17370#1#HTML" expanded="true" />
                 <element signature="e#18156#18163#1#HTML" expanded="true" />
               </folding>
@@ -156,8 +147,8 @@
         <option value="$PROJECT_DIR$/ecommerce/views.py" />
         <option value="$PROJECT_DIR$/templates/product-page.html" />
         <option value="$PROJECT_DIR$/ecommerce/urls.py" />
-        <option value="$PROJECT_DIR$/templates/home-page.html" />
         <option value="$PROJECT_DIR$/ecommerce/models.py" />
+        <option value="$PROJECT_DIR$/templates/home-page.html" />
       </list>
     </option>
   </component>
@@ -168,8 +159,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="307" />
-    <option name="y" value="39" />
+    <option name="x" value="40" />
+    <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="770" />
   </component>
@@ -278,7 +269,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="307" y="39" width="1400" height="770" extended-state="0" />
+    <frame x="-17" y="571" width="1400" height="770" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -381,18 +372,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="22" lean-forward="true" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1557951396000" expanded="true" signature="225:275" ph="..." />
-            <marker date="1557951396000" expanded="true" signature="300:305" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/footer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -421,11 +400,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1557951396000" expanded="true" signature="225:275" ph="..." />
+            <marker date="1557951396000" expanded="true" signature="300:305" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/home-page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6248">
-          <caret line="600" column="20" selection-start-line="600" selection-start-column="20" selection-end-line="600" selection-end-column="20" />
+        <state relative-caret-position="128">
+          <caret line="253" column="9" selection-start-line="253" selection-start-column="9" selection-end-line="253" selection-end-column="9" />
           <folding>
+            <element signature="n#div#0;n#div#0;n#section#0;n#div#0;n#main#0;n#!!top" />
             <element signature="e#17363#17370#1#HTML" expanded="true" />
             <element signature="e#18156#18163#1#HTML" expanded="true" />
           </folding>
