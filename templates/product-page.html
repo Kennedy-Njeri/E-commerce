@@ -40,17 +40,19 @@
             </div>
 
             <p class="lead">
-              <span class="mr-1">
-                <del>${{ item.price }}</del>
-              </span>
+
               <span>$
                    {% if item.discount_price %}
+                       <span class="mr-1">
+                <del>${{ item.price }}</del>
+              </span>
 
-                      {{ item.discount_price }}
+
+                      <span>{{ item.discount_price }}</span>
 
                       {% else %}
 
-                      {{ item.price }}
+                     <span>{{ item.price }}</span>
 
                       {% endif %}
               </span>
