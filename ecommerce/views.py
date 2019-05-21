@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Item
+from django.shortcuts import render, get_object_or_404
+from .models import Item, OrderItem, Order
 from django.views.generic import ListView, DetailView
 
 
@@ -36,3 +36,10 @@ def products(request):
     }
 
     return render(request, "product-page.html", context)
+
+
+def add_to_cart(request, slug):
+
+    item = get_object_or_404(Item, slug=slug)
+
+    order_item = OrderItem.objects.create(item=item)
