@@ -34,6 +34,7 @@ def checkout(request):
 
 
 def products(request):
+
     context = {
         'items': Item.objects.all()
     }
@@ -53,6 +54,7 @@ def add_to_cart(request, slug):
     if order_qs.exists():
 
         order = order_qs[0]
+
 
         #check if the order item is in the order
         if order.items.filter(item__slug=item.slug):
