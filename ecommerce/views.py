@@ -63,9 +63,12 @@ def add_to_cart(request, slug):
             order_item.quantity += 1
             order_item.save()
             messages.info(request, "This item was quantity was updated")
+            return redirect("product", slug=slug)
         else:
-            messages.info(request, "This item was added into your cart")
+
             order.items.add(order_item)
+            messages.info(request, "This item was added into your cart")
+            return redirect("product", slug=slug)
 
     else:
 
@@ -94,6 +97,7 @@ def remove_from_cart(request, slug):
 
             order.items.remove(order_item)
             messages.info(request, "This item was removed from your cart")
+            return redirect("product", slug=slug)
 
         else:
 
@@ -108,7 +112,7 @@ def remove_from_cart(request, slug):
 
         return redirect("product", slug=slug)
 
-    return redirect("product", slug=slug)
+
 
 
 
