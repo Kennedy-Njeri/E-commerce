@@ -3,6 +3,7 @@ from .models import Item, OrderItem, Order
 from django.views.generic import ListView, DetailView
 from django.shortcuts import redirect
 from django.utils import timezone
+from django.contrib import messages
 
 
 
@@ -61,7 +62,9 @@ def add_to_cart(request, slug):
         if order.items.filter(item__slug=item.slug):
             order_item.quantity += 1
             order_item.save()
+            messages.info(request, "This item was quantity was updated")
         else:
+            messages.info(request, "This item was added into your cart")
             order.items.add(order_item)
 
     else:
@@ -69,6 +72,7 @@ def add_to_cart(request, slug):
         ordered_date = timezone.now()
         order = Order.objects.create(user=request.user, ordered_date=ordered_date)
         order.items.add(order_item)
+        messages.info(request, "This item was added into your cart")
 
     return redirect("product", slug=slug )
 
@@ -88,14 +92,19 @@ def remove_from_cart(request, slug):
 
             order_item = OrderItem.objects.filter(item=item, user=request.user, ordered=False)[0]
 
-            order.items.add(order_item)
+            order.items.remove(order_item)
+            messages.info(request, "This item was removed from your cart")
 
         else:
+
+            messages.info(request, "This item was not in your cart")
 
             return redirect("product", slug=slug)
 
 
     else:
+
+        messages.info(request, "Yuo do notr have an active order")
 
         return redirect("product", slug=slug)
 
