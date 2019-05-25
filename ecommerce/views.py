@@ -84,7 +84,7 @@ def remove_from_cart(request, slug):
         order = order_qs[0]
 
         # check if the order item is in the order
-        if order.items.filter(item__slug=item.slug):
+        if order.items.filter(item__slug=item.slug).exists():
 
             order_item = OrderItem.objects.filter(item=item, user=request.user, ordered=False)[0]
 
