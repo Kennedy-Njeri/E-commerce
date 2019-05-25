@@ -12,6 +12,7 @@ class HomeView(ListView):
     template_name = "home-page.html"
     context_object_name = "items"
 
+
 class ItemDetailView(DetailView):
     model = Item
     template_name = "product-page.html"
