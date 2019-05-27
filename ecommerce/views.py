@@ -10,6 +10,7 @@ from django.contrib import messages
 
 class HomeView(ListView):
     model = Item
+    paginate_by = 10
     template_name = "home-page.html"
     context_object_name = "items"
 
