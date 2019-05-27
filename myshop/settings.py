@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'ecommerce',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
