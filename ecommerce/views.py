@@ -97,7 +97,9 @@ def remove_from_cart(request, slug):
             order_item = OrderItem.objects.filter(item=item, user=request.user, ordered=False)[0]
 
             order.items.remove(order_item)
+
             messages.info(request, "This item was removed from your cart")
+
             return redirect("product", slug=slug)
 
         else:
@@ -107,11 +109,7 @@ def remove_from_cart(request, slug):
             return redirect("product", slug=slug)
 
 
-    else:
-
-        messages.info(request, "Yuo do notr have an active order")
-
-        return redirect("product", slug=slug)
+    
 
 
 
