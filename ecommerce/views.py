@@ -109,7 +109,11 @@ def remove_from_cart(request, slug):
             return redirect("product", slug=slug)
 
 
-    
+    else:
+
+        messages.info(request, "Yuo do notr have an active order")
+
+        return redirect("product", slug=slug)
 
 
 
