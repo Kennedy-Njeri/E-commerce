@@ -15,6 +15,12 @@ class HomeView(ListView):
     context_object_name = "items"
 
 
+class OrderSummaryView(DetailView):
+    model = Order
+    template_name = 'order_summary.html'
+
+
+
 class ItemDetailView(DetailView):
     model = Item
     template_name = "product-page.html"
