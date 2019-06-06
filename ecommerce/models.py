@@ -96,4 +96,13 @@ class Order(models.Model):
         return self.user.username
 
 
-    
+    def get_total(self):
+
+        total = 0
+
+        for order_item in self.items.all():
+            total += order_item.get_final_price()
+
+        return total
+
+
