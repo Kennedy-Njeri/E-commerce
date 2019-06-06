@@ -2,8 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from .models import Item, OrderItem, Order
 from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
+from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -15,9 +18,22 @@ class HomeView(ListView):
     context_object_name = "items"
 
 
-class OrderSummaryView(View):
+class OrderSummaryView(LoginRequiredMixin, View):
 
     def get(self, *args, **kwargs):
+
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
+
+            context = {
+                'object': order
+            }
+
+            return render(self.request, 'order_summary.html', context)
+
+        except ObjectDoesNotExist:
+            messages.error(self.request, "You do Not Have An Active Order")
+            return redirect("/")
 
         return render(self.request, 'order_summary.html')
 
@@ -54,7 +70,7 @@ def products(request):
 
     return render(request, "product-page.html", context)
 
-
+@login_required
 def add_to_cart(request, slug):
 
     item = get_object_or_404(Item, slug=slug)
@@ -90,7 +106,7 @@ def add_to_cart(request, slug):
 
     return redirect("product", slug=slug )
 
-
+@login_required
 def remove_from_cart(request, slug):
 
     item = get_object_or_404(Item, slug=slug)
