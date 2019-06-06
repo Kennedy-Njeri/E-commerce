@@ -58,7 +58,18 @@
         </td>
 
       </tr>
+
+
+
+
       {% endfor %}
+
+    <tr>
+
+        <td colspan="4"><b>Order Total</b></td>
+        <td>${{ object.get_total }}</td>
+
+        </tr>
 
     </tbody>
   </table>
