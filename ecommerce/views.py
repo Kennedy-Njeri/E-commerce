@@ -143,6 +143,43 @@ def remove_from_cart(request, slug):
 
         return redirect("product", slug=slug)
 
+@login_required
+def remove_single_item_from_cart(request, slug):
+
+    item = get_object_or_404(Item, slug=slug)
+
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+
+    if order_qs.exists():
+
+        order = order_qs[0]
+
+
+        # check if the order item is in the order
+        if order.items.filter(item__slug=item.slug).exists():
+
+            order_item = OrderItem.objects.filter(item=item, user=request.user, ordered=False)[0]
+            order_item.quantity += 1
+            order_item.save()
+
+            order.items.remove(order_item)
+
+            messages.info(request, "This item quantity was updated")
+
+            return redirect("order-summary")
+
+        else:
+
+            messages.info(request, "This item was not in your cart")
+
+            return redirect("product", slug=slug)
+
+
+    else:
+
+        messages.info(request, "Yuo do notr have an active order")
+
+        return redirect("product", slug=slug)
 
 
 
