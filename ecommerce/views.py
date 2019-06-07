@@ -159,10 +159,9 @@ def remove_single_item_from_cart(request, slug):
         if order.items.filter(item__slug=item.slug).exists():
 
             order_item = OrderItem.objects.filter(item=item, user=request.user, ordered=False)[0]
-            order_item.quantity += 1
+            order_item.quantity -= 1
             order_item.save()
 
-            order.items.remove(order_item)
 
             messages.info(request, "This item quantity was updated")
 
