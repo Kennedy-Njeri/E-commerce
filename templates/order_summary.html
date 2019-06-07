@@ -59,10 +59,33 @@
 
       </tr>
 
+        {% empty %}
+
+        <tr>
+
+        <td colspan="5">Your Cart Is Empty</td>
+
+
+        </tr>
+
+        <tr>
+
+        <td colspan="5">
+
+           <a class="btn btn-primary float-right" href="/">Continue Shopping</a>
+
+        </td>
+
+
+
+        </tr>
+
 
 
 
       {% endfor %}
+
+    {% if object.get_total %}
 
     <tr>
 
@@ -82,7 +105,7 @@
     </tr>
 
 
-
+{% endif %}
 
     </tbody>
   </table>

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9918d9e-37f0-4a68-a841-7893b5be1b21" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/order_summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order_summary.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,13 +38,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1095" />
+          <entry key="html" value="1191" />
           <entry key="py" value="2750" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1095" />
+          <entry key="HTML" value="1191" />
           <entry key="Python" value="2750" />
         </counts>
       </usages-collector>
@@ -69,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/order_summary.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+            <state relative-caret-position="151">
+              <caret line="74" column="80" selection-start-line="74" selection-start-column="80" selection-end-line="74" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -144,8 +143,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-64" />
-    <option name="y" value="81" />
+    <option name="x" value="471" />
+    <option name="y" value="23" />
     <option name="width" value="1400" />
     <option name="height" value="770" />
   </component>
@@ -263,7 +262,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="356" y="23" width="1400" height="770" extended-state="0" />
+    <frame x="306" y="23" width="1400" height="770" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26435935" />
@@ -449,8 +448,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/order_summary.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="66" column="6" selection-start-line="66" selection-start-column="6" selection-end-line="66" selection-end-column="6" />
+        <state relative-caret-position="151">
+          <caret line="74" column="80" selection-start-line="74" selection-start-column="80" selection-end-line="74" selection-end-column="80" />
         </state>
       </provider>
     </entry>
