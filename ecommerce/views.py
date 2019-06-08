@@ -26,6 +26,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
             order = Order.objects.get(user=self.request.user, ordered=False)
 
             context = {
+
                 'object': order
             }
 
@@ -36,10 +37,6 @@ class OrderSummaryView(LoginRequiredMixin, View):
             messages.error(self.request, "You do Not Have An Active Order")
 
             return redirect("/")
-
-
-
-
 
 
 
@@ -139,9 +136,10 @@ def remove_from_cart(request, slug):
 
     else:
 
-        messages.info(request, "Yuo do notr have an active order")
+        messages.info(request, "Yuo do not have an active order")
 
         return redirect("product", slug=slug)
+
 
 @login_required
 def remove_single_item_from_cart(request, slug):
@@ -165,7 +163,7 @@ def remove_single_item_from_cart(request, slug):
             if order_item.quantity > 1:
 
                 order_item.quantity -= 1
-                
+
                 order_item.save()
 
             else:
