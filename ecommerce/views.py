@@ -57,6 +57,8 @@ def item_list(request):
 
 
 def checkout(request):
+
+    
     return render(request, "checkout-page.html")
 
 
