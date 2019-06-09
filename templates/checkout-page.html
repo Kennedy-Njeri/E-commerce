@@ -88,7 +88,8 @@
                 <div class="col-lg-4 col-md-6 mb-4">
 
                   <label for="zip">Zip</label>
-                  <input type="text" class="form-control" id="zip" placeholder="" required>
+                  {% comment %}<input type="text" class="form-control" id="zip" placeholder="" required> {% endcomment %}
+                    {{ form.zip }}
                   <div class="invalid-feedback">
                     Zip code required.
                   </div>
@@ -102,26 +103,32 @@
               <hr>
 
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="same-address">
+                {% comment %}<input type="checkbox" class="custom-control-input" id="same-address"> {% endcomment %}
+                  {{ form.same_billing_address }}
                 <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
               </div>
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="save-info">
+                {% comment %}<input type="checkbox" class="custom-control-input" id="save-info"> {% endcomment %}
+                  {{ form.save_info }}
                 <label class="custom-control-label" for="save-info">Save this information for next time</label>
               </div>
 
               <hr>
 
               <div class="d-block my-3">
+                  {% for value, name in form.fields.payment_option.choices %}
                 <div class="custom-control custom-radio">
-                  <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                  <label class="custom-control-label" for="credit">Stripe</label>
-                </div>
 
-                <div class="custom-control custom-radio">
+                    {% comment %}{{ form.payment_option }} {% endcomment %}
+                  <input id="{{ name }}" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="{{ name }}">{{ name }}</label>
+                </div>
+                  {% endfor %}
+
+                {% comment %}<div class="custom-control custom-radio">
                   <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
                   <label class="custom-control-label" for="paypal">Paypal</label>
-                </div>
+                </div>{% endcomment %}
               </div>
 
 

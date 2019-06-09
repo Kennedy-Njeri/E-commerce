@@ -18,7 +18,9 @@ class CheckoutForm(forms.Form):
     apartment_address = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'placeholder': 'Apartment or suite'
     }))
-    country = CountryField(blank_label='(select country)').formfield()
+    country = CountryField(blank_label='(select country)').formfield(attrs={
+        'class': 'custom-select d-block w-100'
+    })
     zip = forms.CharField()
     same_billing_address = forms.BooleanField(widget=forms.CheckboxInput())
     save_info = forms.BooleanField(widget=forms.CheckboxInput())
