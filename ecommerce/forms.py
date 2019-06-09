@@ -12,7 +12,9 @@ PAYMENT_CHOICES = (
 
 
 class CheckoutForm(forms.Form):
-    street_address = forms.CharField()
+    street_address = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': '1234 Main St'
+    }))
     apartment_address = forms.CharField(required=False)
     country = CountryField(blank_label='(select country)')
     zip = forms.CharField()
