@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import CheckoutForm
 
 
 
@@ -56,10 +57,28 @@ def item_list(request):
     return render(request, "home-page.html", context)
 
 
-def checkout(request):
+class CheckoutView(View):
 
-    
-    return render(request, "checkout-page.html")
+    def get(self, *args, **kwargs):
+
+        form = CheckoutForm()
+
+        context = {
+            'form': form
+        }
+
+        return render(self.request, "checkout-page.html", context)
+
+    def post(self, *args, **kwargs):
+
+        form = CheckoutForm(self.request.POST or None)
+
+        if form.is_valid():
+
+            print("The form is valid")
+
+            return redirect("checkout")
+
 
 
 
