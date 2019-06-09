@@ -28,7 +28,7 @@
           <div class="card">
 
 
-              <form>
+            {% comment %}  <form>
 
                   {% csrf_token %}
 
@@ -38,9 +38,12 @@
 
 
               </form>
+              {% endcomment %}
 
             <!--Card content-->
-            <form class="card-body">
+            <form method="POST" class="card-body">
+
+            {% csrf_token %}
 
 
 
@@ -120,7 +123,7 @@
                 <div class="custom-control custom-radio">
 
                     {% comment %}{{ form.payment_option }} {% endcomment %}
-                  <input id="{{ name }}" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <input id="{{ name }}" name="payment_option" type="radio" value="{{ value }}" class="custom-control-input" required>
                   <label class="custom-control-label" for="{{ name }}">{{ name }}</label>
                 </div>
                   {% endfor %}
