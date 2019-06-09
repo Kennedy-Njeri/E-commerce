@@ -50,7 +50,9 @@
 
               <!--address-->
               <div class="md-form mb-5">
-                <input type="text" id="address" class="form-control" placeholder="1234 Main St">
+               {% comment %} <input type="text" id="address" class="form-control" placeholder="1234 Main St"> {% endcomment %}
+                  {{ form.street_address }}
+
                 <label for="address" class="">Address</label>
               </div>
 
