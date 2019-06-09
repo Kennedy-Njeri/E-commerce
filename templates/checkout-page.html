@@ -58,7 +58,8 @@
 
               <!--address-2-->
               <div class="md-form mb-5">
-                <input type="text" id="address-2" class="form-control" placeholder="Apartment or suite">
+                {% comment %}<input type="text" id="address-2" class="form-control" placeholder="Apartment or suite"> {% endcomment %}
+                  {{ form.apartment_address }}
                 <label for="address-2" class="">Address 2 (optional)</label>
               </div>
 
@@ -69,9 +70,10 @@
                 <div class="col-lg-4 col-md-12 mb-4">
 
                   <label for="country">Country</label>
-                  <select class="custom-select d-block w-100" id="country" required>
+               {% comment %}   <select class="custom-select d-block w-100" id="country" required>
                     <option value="">Choose...</option>
-                    <option>United States</option>
+                    <option>United States</option> {% endcomment %}
+                    {{ form.country }}
                   </select>
                   <div class="invalid-feedback">
                     Please select a valid country.
