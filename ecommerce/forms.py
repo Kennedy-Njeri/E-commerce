@@ -13,7 +13,9 @@ PAYMENT_CHOICES = (
 
 
 class CheckoutForm(forms.Form):
-    
+    street_address = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': '1234 Main St'
+    }))
     apartment_address = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'placeholder': 'Apartment or suite'
     }))
