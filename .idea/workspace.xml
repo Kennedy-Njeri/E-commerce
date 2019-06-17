@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9918d9e-37f0-4a68-a841-7893b5be1b21" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ecommerce/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,27 +44,27 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1608" />
-          <entry key="py" value="3837" />
+          <entry key="py" value="3839" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1608" />
-          <entry key="Python" value="3837" />
+          <entry key="Python" value="3839" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+            <state relative-caret-position="105">
+              <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
-                <marker date="1560803569000" expanded="true" signature="1079:1081" ph="..." />
+                <marker date="1560804345000" expanded="true" signature="1079:1081" ph="..." />
               </folding>
             </state>
           </provider>
@@ -88,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecommerce/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="94" column="106" selection-start-line="94" selection-start-column="106" selection-end-line="94" selection-end-column="106" />
+            <state relative-caret-position="224">
+              <caret line="108" column="20" lean-forward="true" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
                 <marker date="1560804100000" expanded="true" signature="366:371" ph="..." />
@@ -147,8 +147,8 @@
         <option value="$PROJECT_DIR$/ecommerce/urls.py" />
         <option value="$PROJECT_DIR$/templates/checkout-page.html" />
         <option value="$PROJECT_DIR$/ecommerce/forms.py" />
-        <option value="$PROJECT_DIR$/ecommerce/views.py" />
         <option value="$PROJECT_DIR$/ecommerce/models.py" />
+        <option value="$PROJECT_DIR$/ecommerce/views.py" />
       </list>
     </option>
   </component>
@@ -159,8 +159,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="86" />
-    <option name="y" value="23" />
+    <option name="x" value="15" />
+    <option name="y" value="155" />
     <option name="width" value="1400" />
     <option name="height" value="770" />
   </component>
@@ -278,7 +278,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="163" y="439" width="1400" height="770" extended-state="0" />
+    <frame x="314" y="416" width="1400" height="770" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2827688" />
@@ -444,17 +444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-            <marker date="1560803569000" expanded="true" signature="1079:1081" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -467,12 +456,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ecommerce/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="94" column="106" selection-start-line="94" selection-start-column="106" selection-end-line="94" selection-end-column="106" />
+        <state relative-caret-position="224">
+          <caret line="108" column="20" lean-forward="true" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
             <marker date="1560804100000" expanded="true" signature="366:371" ph="..." />
             <marker date="1560804100000" expanded="true" signature="2649:2990" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="82" column="40" lean-forward="true" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+            <marker date="1560804345000" expanded="true" signature="1079:1081" ph="..." />
           </folding>
         </state>
       </provider>
