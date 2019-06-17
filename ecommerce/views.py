@@ -82,9 +82,9 @@ class CheckoutView(View):
                 country = form.cleaned_data.get('country')
                 zip = form.cleaned_data.get('zip')
 
-                same_billing_address = form.cleaned_data.get(
-                    'same_billing_address')
-                save_info = form.cleaned_data.get('save_info')
+                #same_billing_address = form.cleaned_data.get(
+                    #'same_billing_address')
+                #save_info = form.cleaned_data.get('save_info')
                 payment_option = form.cleaned_data.get('payment_option')
                 billing_address = BillingAddress(
                     user=self.request.user,
