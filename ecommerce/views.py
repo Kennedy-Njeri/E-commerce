@@ -85,7 +85,7 @@ class CheckoutView(View):
 
                 #same_billing_address = form.cleaned_data.get(
                     #'same_billing_address')
-                save_info = form.cleaned_data.get('save_info')
+                #save_info = form.cleaned_data.get('save_info')
                 payment_option = form.cleaned_data.get('payment_option')
                 billing_address = BillingAddress(
                     user=self.request.user,
@@ -102,7 +102,9 @@ class CheckoutView(View):
                 #print("The form is valid")
 
                 return redirect("checkout")
+            
             messages.warning(self.request, "Failed Checkout")
+
             return redirect("checkout")
 
 
