@@ -102,10 +102,12 @@ class CheckoutView(View):
                 #print("The form is valid")
 
                 return redirect("checkout")
-            
+
             messages.warning(self.request, "Failed Checkout")
 
             return redirect("checkout")
+
+
 
 
 
