@@ -110,9 +110,6 @@ class CheckoutView(View):
 
 
 
-
-
-
         except ObjectDoesNotExist:
 
             messages.error(self.request, "You do Not Have An Active Order")
