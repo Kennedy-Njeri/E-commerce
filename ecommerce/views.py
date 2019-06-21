@@ -114,8 +114,6 @@ class CheckoutView(View):
 
             return redirect("order-summary")
 
-
-
         #print(self.request.POST)
 
 
