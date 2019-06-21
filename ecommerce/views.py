@@ -108,8 +108,6 @@ class CheckoutView(View):
             return redirect("checkout")
 
 
-
-
         except ObjectDoesNotExist:
 
             messages.error(self.request, "You do Not Have An Active Order")
