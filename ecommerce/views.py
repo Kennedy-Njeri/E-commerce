@@ -155,10 +155,12 @@ class PaymentView(View):
             payment.amount = amount
             payment.save()
 
+
             # assign the payment to the order
             order.ordered = True
             order.payment = payment
             order.save()
+
 
 
         except stripe.error.CardError as e:
