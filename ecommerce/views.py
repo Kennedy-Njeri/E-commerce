@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 from .models import Item, OrderItem, Order, BillingAddress
 from django.views.generic import ListView, DetailView, View
@@ -8,6 +9,14 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CheckoutForm
+
+#import stripe
+
+#stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
+
+
 
 
 
@@ -120,7 +129,25 @@ class PaymentView(View):
 
     def get(self, *args, **kwargs):
 
+        #order
+
         return render(self.request, "payment.html")
+
+    def post(self, *args, **kwargs):
+
+        order = Order.objects.get(user=self.request.user, ordered=False)
+
+        token = self.request.POST.get('stripeToken')
+
+        stripe.Charge.create(
+            amount=order.get_total() * 100, #in cents
+            currency="usd",
+            source=token,  # obtained with Stripe.js
+
+        )
+
+        order.ordered = True
+
 
 
 

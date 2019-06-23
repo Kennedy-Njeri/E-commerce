@@ -106,7 +106,7 @@ button:hover {
       <div class="row">
 
         <!--Grid column-->
-        <div class="col-md-8 mb-4">
+        <div class="col-md-12 mb-4">
 
           <!--Card-->
           <div class="card">
@@ -117,7 +117,7 @@ button:hover {
 
   <script src="https://js.stripe.com/v3/"></script>
 
-  <form action="/charge" method="post" id="stripe-form">
+  <form action="." method="post" id="stripe-form">
     <div class="stripe-form-row">
       <label for="card-element" id="stripeBtnLabel">
         Credit or debit card
@@ -130,7 +130,7 @@ button:hover {
 
     <button id="stripeBtn">Submit Payment</button>
   </form>
- 
+
 
 
             <!--Card content-->
@@ -145,7 +145,7 @@ button:hover {
 
 
          <!--Grid column-->
-        <div class="col-md-4 mb-4">
+        <div class="col-md-12 mb-4">
 
           <!-- Heading -->
           <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -190,16 +190,7 @@ button:hover {
           </ul>
           <!-- Cart -->
 
-          <!-- Promo code -->
-          <form class="card p-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
-              </div>
-            </div>
-          </form>
-          <!-- Promo code -->
+
 
         </div>
         <!--Grid column-->
@@ -259,7 +250,7 @@ button:hover {
   });
 
   // Handle form submission.
-  var form = document.getElementById('payment-form');
+  var form = document.getElementById('stripe-form');
   form.addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -278,7 +269,7 @@ button:hover {
   // Submit the form with the token ID.
   function stripeTokenHandler(token) {
     // Insert the token ID into the form so it gets submitted to the server
-    var form = document.getElementById('payment-form');
+    var form = document.getElementById('stripe-form');
     var hiddenInput = document.createElement('input');
     hiddenInput.setAttribute('type', 'hidden');
     hiddenInput.setAttribute('name', 'stripeToken');
@@ -289,16 +280,7 @@ button:hover {
     form.submit();
   }
 
-  var successElement = document.getElementById('stripe-token-handler');
-  document.querySelector('.wrapper').addEventListener('click', function() {
-    successElement.className = 'is-hidden';
-  });
 
-  // Not in demo.
-  function stripeTokenHandler(token) {
-    successElement.className = '';
-    successElement.querySelector('.token').textContent = token.id;
-  }
 </script>
 
  {% endblock content %}
