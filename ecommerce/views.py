@@ -147,6 +147,20 @@ class PaymentView(View):
                 source=token,  # obtained with Stripe.js
 
             )
+
+            # create the payment
+            payment = Payment()
+            payment.stripe_charge_id = ['id']
+            payment.user = self.request.user
+            payment.amount = amount
+            payment.save()
+
+            # assign the payment to the order
+            order.ordered = True
+            order.payment = payment
+            order.save()
+
+
         except stripe.error.CardError as e:
             # Since it's a decline, stripe.error.CardError will be caught
             body = e.json_body
@@ -187,17 +201,7 @@ class PaymentView(View):
 
 
 
-        #create the payment
-        payment = Payment()
-        payment.stripe_charge_id = ['id']
-        payment.user = self.request.user
-        payment.amount = amount
-        payment.save()
 
-        #assign the payment to the order
-        order.ordered = True
-        order.payment = payment
-        order.save()
 
 
 
