@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
-from .models import Item, OrderItem, Order, BillingAddress
+from .models import Item, OrderItem, Order, BillingAddress, Payment
 from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist
@@ -138,15 +138,24 @@ class PaymentView(View):
         order = Order.objects.get(user=self.request.user, ordered=False)
 
         token = self.request.POST.get('stripeToken')
+        amount = order.get_total() * 100
 
-        stripe.Charge.create(
-            amount=order.get_total() * 100, #in cents
+        charge = stripe.Charge.create(
+            amount=amount, #in cents
             currency="usd",
             source=token,  # obtained with Stripe.js
 
         )
 
         order.ordered = True
+
+        #create the payment
+        payment = Payment()
+        payment.stripe_charge_id = ['id']
+        payment.user = self.request.user
+        payment.amount = amount
+        payment.save()
+
 
 
 
