@@ -10,9 +10,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CheckoutForm
 
-#import stripe
+import stripe
 
-#stripe.api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 
@@ -140,14 +140,52 @@ class PaymentView(View):
         token = self.request.POST.get('stripeToken')
         amount = order.get_total() * 100
 
-        charge = stripe.Charge.create(
-            amount=amount, #in cents
-            currency="usd",
-            source=token,  # obtained with Stripe.js
+        try:
+            charge = stripe.Charge.create(
+                amount=amount,  # in cents
+                currency="usd",
+                source=token,  # obtained with Stripe.js
 
-        )
+            )
+        except stripe.error.CardError as e:
+            # Since it's a decline, stripe.error.CardError will be caught
+            body = e.json_body
+            err = body.get('error', {})
 
-        order.ordered = True
+            messages.error(self.request, f"{err.get('message')}")
+        except stripe.error.RateLimitError as e:
+            # Too many requests made to the API too quickly
+            messages.error(self.request, "Rate limit error")
+        except stripe.error.InvalidRequestError as e:
+            # Invalid parameters were supplied to Stripe's API
+            messages.error(self.request, "Invalid parameters")
+        except stripe.error.AuthenticationError as e:
+            # Authentication with Stripe's API failed
+            # (maybe you changed API keys recently)
+            messages.error(self.request, "Not Authenticated")
+        except stripe.error.APIConnectionError as e:
+            # Network communication with Stripe failed
+            messages.error(self.request, "Network Error")
+        except stripe.error.StripeError as e:
+            # Display a very generic error to the user, and maybe send
+            # yourself an email
+            messages.error(self.request, "Something went wrong. You were not charged. Please try Again")
+        except Exception as e:
+            # Send an email to ourselves
+            messages.error(self.request, "A serious Error occured we have been notified")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         #create the payment
         payment = Payment()
@@ -155,6 +193,11 @@ class PaymentView(View):
         payment.user = self.request.user
         payment.amount = amount
         payment.save()
+
+        #assign the payment to the order
+        order.ordered = True
+        order.payment = payment
+        order.save()
 
 
 
