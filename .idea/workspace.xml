@@ -96,8 +96,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/payment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+            <state relative-caret-position="-12">
+              <caret line="274" column="750" selection-start-line="274" selection-start-column="750" selection-end-line="274" selection-end-column="750" />
+              <folding>
+                <element signature="e#3453#3651#0#HTML" expanded="true" />
+                <element signature="e#4405#4639#0#HTML" expanded="true" />
+                <element signature="e#4762#5112#0#HTML" expanded="true" />
+                <element signature="e#8434#8768#0#HTML" expanded="true" />
+                <element signature="e#9172#9506#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,8 +181,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="32" />
-    <option name="y" value="156" />
+    <option name="x" value="2" />
+    <option name="y" value="215" />
     <option name="width" value="1400" />
     <option name="height" value="770" />
   </component>
@@ -498,8 +505,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/payment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+        <state relative-caret-position="-12">
+          <caret line="274" column="750" selection-start-line="274" selection-start-column="750" selection-end-line="274" selection-end-column="750" />
+          <folding>
+            <element signature="e#3453#3651#0#HTML" expanded="true" />
+            <element signature="e#4405#4639#0#HTML" expanded="true" />
+            <element signature="e#4762#5112#0#HTML" expanded="true" />
+            <element signature="e#8434#8768#0#HTML" expanded="true" />
+            <element signature="e#9172#9506#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
