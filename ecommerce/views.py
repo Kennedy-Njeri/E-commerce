@@ -199,12 +199,6 @@ class PaymentView(View):
 
 
 
-
-
-
-
-
-
 def products(request):
 
     context = {
