@@ -196,9 +196,6 @@ class PaymentView(View):
 
 
 
-
-
-
 def products(request):
 
     context = {
@@ -206,6 +203,9 @@ def products(request):
     }
 
     return render(request, "product-page.html", context)
+
+
+
 
 @login_required
 def add_to_cart(request, slug):
