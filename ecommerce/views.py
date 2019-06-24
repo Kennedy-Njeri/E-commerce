@@ -138,6 +138,7 @@ class PaymentView(View):
         order = Order.objects.get(user=self.request.user, ordered=False)
 
         token = self.request.POST.get('stripeToken')
+        
         amount = order.get_total() * 100
 
         try:
