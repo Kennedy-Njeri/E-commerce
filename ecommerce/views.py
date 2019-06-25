@@ -164,6 +164,8 @@ class PaymentView(View):
 
 
 
+
+
         except stripe.error.CardError as e:
             # Since it's a decline, stripe.error.CardError will be caught
             body = e.json_body
