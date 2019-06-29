@@ -227,6 +227,7 @@ def add_to_cart(request, slug):
     return redirect("order-summary")
 
 
+
 @login_required
 def remove_from_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
@@ -260,6 +261,7 @@ def remove_from_cart(request, slug):
         messages.info(request, "Yuo do not have an active order")
 
         return redirect("product", slug=slug)
+
 
 
 @login_required
