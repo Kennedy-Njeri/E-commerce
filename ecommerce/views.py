@@ -15,12 +15,6 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
-
-
-
-
-
-
 class HomeView(ListView):
     model = Item
     paginate_by = 10
@@ -49,18 +43,15 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return redirect("/")
 
 
-
 class ItemDetailView(DetailView):
     model = Item
     template_name = "product-page.html"
     context_object_name = "item"
 
 
-
-
 def item_list(request):
     context = {
-        'items' : Item.objects.all()
+        'items': Item.objects.all()
     }
 
     return render(request, "home-page.html", context)
@@ -92,9 +83,9 @@ class CheckoutView(View):
                 zip = form.cleaned_data.get('zip')
                 # TODO: add functionality for these fields
 
-                #same_billing_address = form.cleaned_data.get(
-                    #'same_billing_address')
-                #save_info = form.cleaned_data.get('save_info')
+                # same_billing_address = form.cleaned_data.get(
+                # 'same_billing_address')
+                # save_info = form.cleaned_data.get('save_info')
                 payment_option = form.cleaned_data.get('payment_option')
                 billing_address = BillingAddress(
                     user=self.request.user,
@@ -108,7 +99,7 @@ class CheckoutView(View):
 
                 # print(form.cleaned_data)
 
-                #print("The form is valid")
+                # print("The form is valid")
 
                 return redirect("checkout")
 
@@ -123,13 +114,14 @@ class CheckoutView(View):
 
             return redirect("order-summary")
 
-        #print(self.request.POST)
+        # print(self.request.POST)
+
 
 class PaymentView(View):
 
     def get(self, *args, **kwargs):
 
-        #order
+        # order
 
         return render(self.request, "payment.html")
 
@@ -155,7 +147,6 @@ class PaymentView(View):
             payment.user = self.request.user
             payment.amount = amount
             payment.save()
-
 
             # assign the payment to the order
             order.ordered = True
@@ -192,12 +183,7 @@ class PaymentView(View):
             messages.error(self.request, "A serious Error occured we have been notified")
 
 
-
-
-
-
 def products(request):
-
     context = {
         'items': Item.objects.all()
     }
@@ -205,24 +191,19 @@ def products(request):
     return render(request, "product-page.html", context)
 
 
-
-
 @login_required
 def add_to_cart(request, slug):
-
     item = get_object_or_404(Item, slug=slug)
 
     order_item, created = OrderItem.objects.get_or_create(item=item, user=request.user, ordered=False)
 
     order_qs = Order.objects.filter(user=request.user, ordered=False)
 
-
     if order_qs.exists():
 
         order = order_qs[0]
 
-
-        #check if the order item is in the order
+        # check if the order item is in the order
         if order.items.filter(item__slug=item.slug):
             order_item.quantity += 1
             order_item.save()
@@ -243,9 +224,9 @@ def add_to_cart(request, slug):
 
     return redirect("order-summary")
 
+
 @login_required
 def remove_from_cart(request, slug):
-
     item = get_object_or_404(Item, slug=slug)
 
     order_qs = Order.objects.filter(user=request.user, ordered=False)
@@ -281,7 +262,6 @@ def remove_from_cart(request, slug):
 
 @login_required
 def remove_single_item_from_cart(request, slug):
-
     item = get_object_or_404(Item, slug=slug)
 
     order_qs = Order.objects.filter(user=request.user, ordered=False)
@@ -290,13 +270,10 @@ def remove_single_item_from_cart(request, slug):
 
         order = order_qs[0]
 
-
         # check if the order item is in the order
         if order.items.filter(item__slug=item.slug).exists():
 
             order_item = OrderItem.objects.filter(item=item, user=request.user, ordered=False)[0]
-
-
 
             if order_item.quantity > 1:
 
@@ -306,7 +283,6 @@ def remove_single_item_from_cart(request, slug):
 
             else:
                 order.items.remove(order_item)
-
 
             messages.info(request, "This item quantity was updated")
 
@@ -324,8 +300,3 @@ def remove_single_item_from_cart(request, slug):
         messages.info(request, "Yuo do notr have an active order")
 
         return redirect("product", slug=slug)
-
-
-
-
-
