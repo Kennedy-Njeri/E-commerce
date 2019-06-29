@@ -15,6 +15,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
+
 class HomeView(ListView):
     model = Item
     paginate_by = 10
@@ -68,6 +69,7 @@ class CheckoutView(View):
         }
 
         return render(self.request, "checkout-page.html", context)
+
 
     def post(self, *args, **kwargs):
 
