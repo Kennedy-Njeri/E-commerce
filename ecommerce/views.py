@@ -185,6 +185,7 @@ class PaymentView(View):
             messages.error(self.request, "A serious Error occured we have been notified")
 
 
+
 def products(request):
     context = {
         'items': Item.objects.all()
