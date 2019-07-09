@@ -202,7 +202,7 @@ button:hover {
     </div>
   </main>
   <!--Main layout-->
-    
+
 
     <script nonce="">  // Create a Stripe client.
   var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
@@ -244,6 +244,7 @@ button:hover {
     }
   });
 
+  
   // Handle form submission.
   var form = document.getElementById('stripe-form');
   form.addEventListener('submit', function(event) {
@@ -260,6 +261,7 @@ button:hover {
       }
     });
   });
+
 
   // Submit the form with the token ID.
   function stripeTokenHandler(token) {
