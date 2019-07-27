@@ -57,7 +57,6 @@ def item_list(request):
 
     return render(request, "home-page.html", context)
 
-
 class CheckoutView(View):
 
     def get(self, *args, **kwargs):
@@ -224,7 +223,6 @@ def add_to_cart(request, slug):
         messages.info(request, "This item was added into your cart")
 
     return redirect("order-summary")
-
 
 
 @login_required
