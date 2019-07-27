@@ -186,6 +186,7 @@ class PaymentView(View):
 
 
 
+
 def products(request):
     context = {
         'items': Item.objects.all()
