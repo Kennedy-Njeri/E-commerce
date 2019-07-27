@@ -156,7 +156,6 @@ class PaymentView(View):
             order.save()
 
 
-
         except stripe.error.CardError as e:
             # Since it's a decline, stripe.error.CardError will be caught
             body = e.json_body
@@ -183,8 +182,6 @@ class PaymentView(View):
         except Exception as e:
             # Send an email to ourselves
             messages.error(self.request, "A serious Error occured we have been notified")
-
-
 
 
 def products(request):
