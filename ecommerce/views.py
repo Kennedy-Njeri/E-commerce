@@ -23,6 +23,7 @@ class HomeView(ListView):
     context_object_name = "items"
 
 
+
 class OrderSummaryView(LoginRequiredMixin, View):
 
     def get(self, *args, **kwargs):
@@ -119,6 +120,7 @@ class CheckoutView(View):
             return redirect("order-summary")
 
         # print(self.request.POST)
+
 
 
 class PaymentView(View):
@@ -226,6 +228,7 @@ def add_to_cart(request, slug):
         messages.info(request, "This item was added into your cart")
 
     return redirect("order-summary")
+
 
 
 @login_required
