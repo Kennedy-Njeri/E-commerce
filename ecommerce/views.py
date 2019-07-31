@@ -44,6 +44,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return redirect("/")
 
 
+
 class ItemDetailView(DetailView):
     model = Item
     template_name = "product-page.html"
@@ -56,6 +57,8 @@ def item_list(request):
     }
 
     return render(request, "home-page.html", context)
+
+
 
 class CheckoutView(View):
 
