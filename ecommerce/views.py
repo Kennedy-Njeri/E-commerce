@@ -45,7 +45,6 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return redirect("/")
 
 
-
 class ItemDetailView(DetailView):
     model = Item
     template_name = "product-page.html"
@@ -120,7 +119,6 @@ class CheckoutView(View):
             return redirect("order-summary")
 
         # print(self.request.POST)
-
 
 
 class PaymentView(View):
