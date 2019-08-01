@@ -121,6 +121,7 @@ class CheckoutView(View):
         # print(self.request.POST)
 
 
+
 class PaymentView(View):
 
     def get(self, *args, **kwargs):
