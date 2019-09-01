@@ -100,17 +100,16 @@ class CheckoutView(View):
                 )
                 billing_address.save()
                 order.billing_address = billing_address
+                order.save()
 
-                # print(form.cleaned_data)
 
-                # print("The form is valid")
-
-                return redirect("checkout")
-
-            messages.warning(self.request, "Failed Checkout")
-
-            return redirect("checkout")
-
+                if payment_option == 'S':
+                    return redirect("payment", payment_option='stripe')
+                elif payment_option == 'P':
+                    return redirect("payment", payment_option='paypal')
+                else:
+                    messages.warning(self.request, "Invalid payment option selected")
+                    return redirect("checkout")
 
         except ObjectDoesNotExist:
 
@@ -126,9 +125,13 @@ class PaymentView(View):
 
     def get(self, *args, **kwargs):
 
-        # order
+        order = Order.objects.get(user=self.request.user, ordered=False)
 
-        return render(self.request, "payment.html")
+        context = {
+            'order': order
+        }
+
+        return render(self.request, "payment.html", context)
 
     def post(self, *args, **kwargs):
 
