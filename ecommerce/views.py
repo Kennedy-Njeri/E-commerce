@@ -64,13 +64,24 @@ class CheckoutView(View):
 
     def get(self, *args, **kwargs):
 
-        form = CheckoutForm()
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
 
-        context = {
-            'form': form
-        }
+            form = CheckoutForm()
 
-        return render(self.request, "checkout-page.html", context)
+            context = {
+                'form': form,
+                'order': order
+            }
+
+            return render(self.request, "checkout-page.html", context)
+
+        except ObjectDoesNotExist:
+
+            messages.info(self.request, "Yuo do not have an active order")
+            return redirect("checkout")
+
+
 
 
     def post(self, *args, **kwargs):
