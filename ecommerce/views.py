@@ -69,7 +69,8 @@ class CheckoutView(View):
             context = {
                 'form': form,
                 'couponform': CouponForm(),
-                'order': order
+                'order': order,
+                'DISPLAY_COUPON_FORM': True
             }
 
             return render(self.request, "checkout-page.html", context)
@@ -133,7 +134,8 @@ class PaymentView(View):
 
         context = {
 
-            'order': order
+            'order': order,
+            'DISPLAY_COUPON_FORM': False
         }
 
         return render(self.request, "payment.html", context)

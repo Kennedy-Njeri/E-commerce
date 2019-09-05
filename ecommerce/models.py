@@ -108,6 +108,7 @@ class Order(models.Model):
         for order_item in self.items.all():
 
             total += order_item.get_final_price()
+        total-=self.coupon.amount
 
         return total
 
@@ -139,6 +140,7 @@ class Payment(models.Model):
 
 class Coupon(models.Model):
     code = models.CharField(max_length=15)
+    amount = models.FloatField()
 
 
     def __str__(self):
