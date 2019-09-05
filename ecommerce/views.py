@@ -107,7 +107,7 @@ class CheckoutView(View):
                 )
                 billing_address.save()
                 order.billing_address = billing_address
-                order.save()
+
 
                 if payment_option == 'S':
                     return redirect("payment", payment_option='stripe')
