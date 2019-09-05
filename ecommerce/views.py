@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
-from .models import Item, OrderItem, Order, BillingAddress, Payment
+from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon
 from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist
@@ -329,3 +329,32 @@ def remove_single_item_from_cart(request, slug):
         messages.info(request, "Yuo do not have an active order")
 
         return redirect("product", slug=slug)
+
+
+def get_coupon(request, code):
+    try:
+        coupon = Coupon.objects.get(code=code)
+        return coupon
+
+
+    except ObjectDoesNotExist:
+
+        messages.info(request, "This coupon does Not Exist")
+        return redirect("checkout")
+
+
+
+def add_coupon(request, code):
+    try:
+        order = Order.objects.get(user=request.user, ordered=False)
+
+        order.coupon = get_coupon(request, code)
+
+        order.save()
+        messages.success(request, "Successfully Added Coupon")
+        return redirect("checkout")
+
+    except ObjectDoesNotExist:
+
+        messages.info(request, "Yuo do not have an active order")
+        return redirect("checkout")
