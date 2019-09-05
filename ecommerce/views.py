@@ -8,7 +8,7 @@ from django.utils import timezone
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import CheckoutForm
+from .forms import CheckoutForm, CouponForm
 
 import stripe
 
@@ -71,6 +71,7 @@ class CheckoutView(View):
 
             context = {
                 'form': form,
+                'couponform': CouponForm(),
                 'order': order
             }
 
@@ -355,17 +356,25 @@ def get_coupon(request, code):
 
 
 
-def add_coupon(request, code):
-    try:
-        order = Order.objects.get(user=request.user, ordered=False)
+def add_coupon(request):
 
-        order.coupon = get_coupon(request, code)
+    if request.method == 'POST':
+        form = CouponForm(request.POST or None)
+        if form.is_valid():
 
-        order.save()
-        messages.success(request, "Successfully Added Coupon")
-        return redirect("checkout")
+           try:
+               code = form.changed_data.get('code')
+               order = Order.objects.get(user=request.user, ordered=False)
 
-    except ObjectDoesNotExist:
+               order.coupon = get_coupon(request, code)
 
-        messages.info(request, "Yuo do not have an active order")
-        return redirect("checkout")
+               order.save()
+               messages.success(request, "Successfully Added Coupon")
+               return redirect("checkout")
+
+           except ObjectDoesNotExist:
+
+               messages.info(request, "Yuo do not have an active order")
+               return redirect("checkout")
+
+    return None
