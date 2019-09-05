@@ -15,13 +15,11 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
-
 class HomeView(ListView):
     model = Item
     paginate_by = 10
     template_name = "home-page.html"
     context_object_name = "items"
-
 
 
 class OrderSummaryView(LoginRequiredMixin, View):
@@ -59,7 +57,6 @@ def item_list(request):
     return render(request, "home-page.html", context)
 
 
-
 class CheckoutView(View):
 
     def get(self, *args, **kwargs):
@@ -81,9 +78,6 @@ class CheckoutView(View):
 
             messages.info(self.request, "Yuo do not have an active order")
             return redirect("checkout")
-
-
-
 
     def post(self, *args, **kwargs):
 
@@ -114,7 +108,6 @@ class CheckoutView(View):
                 order.billing_address = billing_address
                 order.save()
 
-
                 if payment_option == 'S':
                     return redirect("payment", payment_option='stripe')
                 elif payment_option == 'P':
@@ -130,7 +123,6 @@ class CheckoutView(View):
             return redirect("order-summary")
 
         # print(self.request.POST)
-
 
 
 class PaymentView(View):
@@ -150,7 +142,7 @@ class PaymentView(View):
 
         order = Order.objects.get(user=self.request.user, ordered=False)
 
-        #token = self.request.POST.get('stripeToken')
+        # token = self.request.POST.get('stripeToken')
 
         amount = int(order.get_total() * 100)
 
@@ -168,8 +160,6 @@ class PaymentView(View):
             payment.user = self.request.user
             payment.amount = order.get_total()
             payment.save()
-
-
 
             order_items = order.items.all()
             order_items.update(ordered=True)
@@ -221,7 +211,6 @@ class PaymentView(View):
 
 
 def products(request):
-
     context = {
 
         'items': Item.objects.all()
@@ -264,7 +253,6 @@ def add_to_cart(request, slug):
     return redirect("order-summary")
 
 
-
 @login_required
 def remove_from_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
@@ -298,7 +286,6 @@ def remove_from_cart(request, slug):
         messages.info(request, "Yuo do not have an active order")
 
         return redirect("product", slug=slug)
-
 
 
 @login_required
@@ -355,26 +342,24 @@ def get_coupon(request, code):
         return redirect("checkout")
 
 
-
 def add_coupon(request):
-
     if request.method == 'POST':
         form = CouponForm(request.POST or None)
         if form.is_valid():
 
-           try:
-               code = form.changed_data.get('code')
-               order = Order.objects.get(user=request.user, ordered=False)
+            try:
+                code = form.cleaned_data.get('code')
+                order = Order.objects.get(user=request.user, ordered=False)
 
-               order.coupon = get_coupon(request, code)
+                order.coupon = get_coupon(request, code)
 
-               order.save()
-               messages.success(request, "Successfully Added Coupon")
-               return redirect("checkout")
+                order.save()
+                messages.success(request, "Successfully Added Coupon")
+                return redirect("checkout")
 
-           except ObjectDoesNotExist:
+            except ObjectDoesNotExist:
 
-               messages.info(request, "Yuo do not have an active order")
-               return redirect("checkout")
+                messages.info(request, "You do not have an active order")
+                return redirect("checkout")
 
     return None

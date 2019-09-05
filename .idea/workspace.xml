@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9918d9e-37f0-4a68-a841-7893b5be1b21" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ecommerce/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecommerce/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/order_snippet.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order_snippet.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,13 +54,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1968" />
+          <entry key="html" value="1985" />
           <entry key="py" value="5902" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1968" />
+          <entry key="HTML" value="1985" />
           <entry key="Python" value="5902" />
         </counts>
       </usages-collector>
@@ -71,16 +68,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+            <state relative-caret-position="127">
+              <caret line="350" column="18" selection-start-line="350" selection-start-column="18" selection-end-line="350" selection-end-column="18" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
-                <marker date="1567714533000" expanded="true" signature="1217:1218" ph="..." />
-                <marker date="1567714533000" expanded="true" signature="9913:10123" ph="..." />
-                <marker date="1567714533000" expanded="true" signature="10261:10266" ph="..." />
+                <marker date="1567714972000" expanded="true" signature="1215:1216" ph="..." />
+                <marker date="1567714972000" expanded="true" signature="9901:10111" ph="..." />
+                <marker date="1567714972000" expanded="true" signature="10247:10252" ph="..." />
               </folding>
             </state>
           </provider>
@@ -119,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/order_snippet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="131">
+              <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -183,8 +180,8 @@
         <option value="$PROJECT_DIR$/templates/checkout-page.html" />
         <option value="$PROJECT_DIR$/ecommerce/urls.py" />
         <option value="$PROJECT_DIR$/ecommerce/forms.py" />
-        <option value="$PROJECT_DIR$/ecommerce/views.py" />
         <option value="$PROJECT_DIR$/templates/order_snippet.html" />
+        <option value="$PROJECT_DIR$/ecommerce/views.py" />
       </list>
     </option>
   </component>
@@ -195,8 +192,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="285" />
-    <option name="y" value="537" />
+    <option name="x" value="110" />
+    <option name="y" value="23" />
     <option name="width" value="1361" />
     <option name="height" value="804" />
   </component>
@@ -327,7 +324,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="450" y="25" width="1361" height="804" extended-state="0" />
+    <frame x="79" y="23" width="1361" height="804" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3404094" />
@@ -535,19 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-            <marker date="1567714533000" expanded="true" signature="1217:1218" ph="..." />
-            <marker date="1567714533000" expanded="true" signature="9913:10123" ph="..." />
-            <marker date="1567714533000" expanded="true" signature="10261:10266" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/checkout-page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
@@ -567,8 +551,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/order_snippet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="131">
+          <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ecommerce/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="350" column="18" selection-start-line="350" selection-start-column="18" selection-end-line="350" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1567714972000" expanded="true" signature="1215:1216" ph="..." />
+            <marker date="1567714972000" expanded="true" signature="9901:10111" ph="..." />
+            <marker date="1567714972000" expanded="true" signature="10247:10252" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
