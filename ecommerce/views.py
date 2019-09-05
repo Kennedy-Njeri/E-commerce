@@ -128,6 +128,7 @@ class PaymentView(View):
         order = Order.objects.get(user=self.request.user, ordered=False)
 
         context = {
+
             'order': order
         }
 
@@ -201,7 +202,9 @@ class PaymentView(View):
 
 
 def products(request):
+
     context = {
+
         'items': Item.objects.all()
     }
 
@@ -316,6 +319,6 @@ def remove_single_item_from_cart(request, slug):
 
     else:
 
-        messages.info(request, "Yuo do notr have an active order")
+        messages.info(request, "Yuo do not have an active order")
 
         return redirect("product", slug=slug)
